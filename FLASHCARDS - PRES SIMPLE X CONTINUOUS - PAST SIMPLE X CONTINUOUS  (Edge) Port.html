@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contínuo vs Simples - Flashcards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .flashcard {
+      width: 320px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .flashcard:hover {
+      transform: scale(1.03);
+    }
+
+    .card-section {
+      padding: 1.2rem;
+      border-bottom: 1px solid #eee;
+      display: none;
+    }
+
+    .card-header {
+      background: #007acc;
+      color: white;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .card-section.active {
+      display: block;
+    }
+
+    .highlight {
+      color: #007acc;
+      font-weight: bold;
+    }
+
+    .check {
+      font-size: 1.1rem;
+    }
+
+    .check.green { color: green; }
+    .check.blue { color: #007acc; }
+    .check.orange { color: orange; }
+  </style>
+</head>
+<body>
+  
+  <div class="flashcard" onclick="toggleCard(this)">
+    <div class="card-header">🎾 Presente Contínuo</div>
+    <div class="card-section active">
+      <p class="check blue">✔️ Uso:</p>
+      <p>Descreve <span class="highlight">ações temporárias que estão acontecendo agora</span> ou em torno do momento atual.</p>
+    </div>
+    <div class="card-section">
+      <p class="check orange">📝 Explicação:</p>
+      <p>Formado por <span class="highlight">am/is/are + verbo com -ing</span>. Enfatiza a ação em andamento.</p>
+    </div>
+    <div class="card-section">
+      <p class="check green">📌 Exemplo:</p>
+      <p>I am <span class="highlight">playing</span> tennis today. (Estou jogando tênis hoje.)</p>
+    </div>
+  </div>
+
+  <div class="flashcard" onclick="toggleCard(this)">
+    <div class="card-header">⚽ Presente Simples</div>
+    <div class="card-section active">
+      <p class="check blue">✔️ Uso:</p>
+      <p>Para descrever <span class="highlight">hábitos, rotinas</span> ou verdades gerais.</p>
+    </div>
+    <div class="card-section">
+      <p class="check orange">📝 Explicação:</p>
+      <p>Usa o verbo base (acrescenta -s para he/she/it). Refere-se a ações regulares.</p>
+    </div>
+    <div class="card-section">
+      <p class="check green">📌 Exemplo:</p>
+      <p>I usually <span class="highlight">play</span> football. (Eu normalmente jogo futebol.)</p>
+    </div>
+  </div>
+
+  <div class="flashcard" onclick="toggleCard(this)">
+    <div class="card-header">⏳ Passado Contínuo</div>
+    <div class="card-section active">
+      <p class="check blue">✔️ Uso:</p>
+      <p>Descreve <span class="highlight">ações temporárias no passado</span> ou ações interrompidas por outra ação.</p>
+    </div>
+    <div class="card-section">
+      <p class="check orange">📝 Explicação:</p>
+      <p>Formado por <span class="highlight">was/were + verbo com -ing</span>. Frequentemente vem acompanhado de outra ação no passado.</p>
+    </div>
+    <div class="card-section">
+      <p class="check green">📌 Exemplo:</p>
+      <p>He called me <span class="highlight">while I was sleeping</span>. (Ele me ligou enquanto eu estava dormindo.)</p>
+    </div>
+  </div>
+
+  <div class="flashcard" onclick="toggleCard(this)">
+    <div class="card-header">📅 Passado Simples</div>
+    <div class="card-section active">
+      <p class="check blue">✔️ Uso:</p>
+      <p>Descreve <span class="highlight">ações completas no passado</span>, geralmente com referência de tempo.</p>
+    </div>
+    <div class="card-section">
+      <p class="check orange">📝 Explicação:</p>
+      <p>Usa a forma passada do verbo. Expressões como <em>yesterday</em> indicam que a ação já terminou.</p>
+    </div>
+    <div class="card-section">
+      <p class="check green">📌 Exemplo:</p>
+      <p>I <span class="highlight">saw</span> Jack yesterday. (Eu vi o Jack ontem.)</p>
+    </div>
+  </div>
+
+  <div class="flashcard" onclick="toggleCard(this)">
+    <div class="card-header">💡 Estrutura do Tempo Contínuo</div>
+    <div class="card-section active">
+      <p class="check blue">✔️ Dica:</p>
+      <p>O verbo sempre segue o padrão <span class="highlight">TO BE + -ING</span>.</p>
+    </div>
+    <div class="card-section">
+      <p class="check green">📌 Exemplo:</p>
+      <p>Sam <span class="highlight">was crying</span> when I saw him. (Sam estava chorando quando eu o vi.)</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleCard(card) {
+      const sections = card.querySelectorAll('.card-section');
+      let activeIndex = -1;
+
+      sections.forEach((sec, index) => {
+        if (sec.classList.contains('active')) {
+          activeIndex = index;
+        }
+        sec.classList.remove('active');
+      });
+
+      const nextIndex = (activeIndex + 1) % sections.length;
+      sections[nextIndex].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
